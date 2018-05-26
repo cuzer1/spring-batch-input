@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import com.cuzer.springbatchinput.reader.StatelessItemReader;
 
 @Configuration
-public class JobConfiguration {
+public class ItemReaderFirstJobConfiguration {
 	
 	@Autowired
 	public JobBuilderFactory jobBuilderFactory;
@@ -32,27 +32,27 @@ public class JobConfiguration {
 		return new StatelessItemReader(data);
 	}
 	
-	@Bean
-	public Step step1() {
-		return stepBuilderFactory.get("step1")
-				.<String, String>chunk(4)
-				.reader(statelessItemReader())
-				.writer(
-						list -> {
-							for (String curItem : list) {
-								System.out.println("current Item= " + curItem);
-							}
-						}
-						)
-				.build();
-	}
+//	@Bean
+//	public Step step1() {
+//		return stepBuilderFactory.get("step1")
+//				.<String, String>chunk(4)
+//				.reader(statelessItemReader())
+//				.writer(
+//						list -> {
+//							for (String curItem : list) {
+//								System.out.println("current Item= " + curItem);
+//							}
+//						}
+//						)
+//				.build();
+//	}
 	
-	
-	@Bean
-	public Job Job1() {
-		return jobBuilderFactory.get("FirstInputJob2")
-				.start(step1())
-				.build();
-	}
+//	
+//	@Bean
+//	public Job Job1() {
+//		return jobBuilderFactory.get("FirstInputJob3")
+//				.start(step1())
+//				.build();
+//	}
 
 }
