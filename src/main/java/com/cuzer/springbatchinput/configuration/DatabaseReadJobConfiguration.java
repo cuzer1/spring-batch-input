@@ -77,15 +77,15 @@ public class DatabaseReadJobConfiguration {
 		};
 	}
 
-	@Bean
-	public Step step1() {
-		return stepBuilderFactory.get("step1").<Customer, Customer>chunk(10).reader(pagingItemReader())
-				.writer(itemWriter()).build();
-	}
-
-	@Bean
-	public Job job1() {
-		return jobBuilderFactory.get("dbJob2").start(step1()).build();
-	}
+//	@Bean
+//	public Step step1() {
+//		return stepBuilderFactory.get("step1").<Customer, Customer>chunk(10).reader(pagingItemReader())
+//				.writer(itemWriter()).build();
+//	}
+//
+//	@Bean
+//	public Job job1() {
+//		return jobBuilderFactory.get("dbJob2").start(step1()).build();
+//	}
 
 }
