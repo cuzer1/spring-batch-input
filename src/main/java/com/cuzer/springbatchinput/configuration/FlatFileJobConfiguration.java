@@ -57,9 +57,9 @@ public class FlatFileJobConfiguration {
 				.writer(itemWriter()).build();
 	}
 
-	@Bean
-	public Job job1() {
-		return jobBuilderFactory.get("FlatFileReader").start(step1()).build();
-	}
+//	@Bean
+//	public Job job1() {
+//		return jobBuilderFactory.get("FlatFileReader").start(step1()).build();
+//	}
 
 }
