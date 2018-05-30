@@ -27,7 +27,6 @@ public class XMLFileReaderJobConfig {
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 
-	@Bean
 	public StaxEventItemReader<Customer> customerItemReader() {
 
 		XStreamMarshaller unmarshaller = new XStreamMarshaller();
@@ -46,7 +45,6 @@ public class XMLFileReaderJobConfig {
 		return reader;
 	}
 
-	@Bean
 	public ItemWriter<Customer> customerItemWriter() {
 		return items -> {
 			for (Customer item : items) {
@@ -54,8 +52,6 @@ public class XMLFileReaderJobConfig {
 			}
 		};
 	}
-
-	@Bean
 	public Step step1() {
 		return stepBuilderFactory.get("step1")
 				.<Customer, Customer>chunk(10)
